@@ -5,6 +5,8 @@ import CodeEditor from './Ce';
 import InterviewPanel from './Ipa';
 import ChatHistory from './Ch';
 import './Ip.css';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 function App() {
   const [activeTab, setActiveTab] = useState('interview');
@@ -98,7 +100,7 @@ function App() {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/start/${topic}`);
+        const res = await axios.get(`${BASE_URL}/start/${topic}`);
         const data = res.data;
         localStorage.setItem('questionId', data.id);
 
@@ -169,11 +171,12 @@ function App() {
       const questionId = localStorage.getItem('questionId');
       const username = localStorage.getItem('username') || 'candidate';
   
-      const res = await axios.post('http://localhost:8080/review', {
+      const res = await axios.post(`${BASE_URL}/review`, {
         questionId,
         username,
         code
       });
+      
   
       const aiMessage = res.data;
   
@@ -221,10 +224,11 @@ function App() {
     const questionId = localStorage.getItem('questionId');
   
     try {
-      const res = await axios.post('http://localhost:8080/query', {
+      const res = await axios.post(`${BASE_URL}/query`, {
         questionId,
         userQuestion
       });
+      
   
       const aiMessage = res.data;
   

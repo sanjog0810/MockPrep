@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import './Ce.css';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const CodeEditor = ({ code, setCode, onSubmit, isSubmitting }) => {
   const [language, setLanguage] = useState('javascript');

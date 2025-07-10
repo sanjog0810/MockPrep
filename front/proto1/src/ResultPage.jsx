@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './ResultPage.css'; // Create this file for styling
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function ResultsPage() {
   const [result, setResult] = useState(null);
@@ -12,7 +13,7 @@ function ResultsPage() {
   useEffect(() => {
     const fetchResult = async () => {
       try {
-        const res = await axios.post('http://localhost:8080/end', {
+        const res = await axios.post(`${BASE_URL}/end`, {
           questionId,
           username,
           finalCode: localStorage.getItem('finalCode'),
