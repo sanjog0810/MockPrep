@@ -4,8 +4,8 @@ FROM maven:3.9.6-eclipse-temurin-17 as builder
 WORKDIR /app
 
 # Copy pom and source code
-COPY backend/pom.xml .
-COPY backend/src ./src
+COPY demo/pom.xml .
+COPY demo/src ./src
 
 # Build the application
 RUN mvn clean package -DskipTests
