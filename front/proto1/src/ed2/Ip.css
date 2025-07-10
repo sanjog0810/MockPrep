@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  :root {
+    --primary-black: #000000;
+    --secondary-black: #2c2c2c;
+    --tertiary-black: #1d1d1d;
+    --primary-white: #ffffff;
+    --secondary-white: #f0f0f0;
+    --accent-color: #ba8a8a;
+    --accent-hover: #3a7bc8;
+    --success-color: #4CAF50;
+    --error-color: #f44336;
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+  }
+  
+  .interview-container {
+    display: flex;
+    height: calc(100vh - 120px);
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .interview-container {
+      flex-direction: column;
+    }
+  }

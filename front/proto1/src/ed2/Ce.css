@@ -1,0 +1,61 @@
+.code-editor-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-black);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+  }
+  
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--tertiary-black);
+    border-bottom: 1px solid #333;
+  }
+  
+  .editor-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .language-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .language-selector select {
+    background-color: #333;
+    color: var(--primary-white);
+    border: 1px solid #444;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .monaco-editor {
+    flex: 1;
+  }
+  
+  .submit-button {
+    padding: 12px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-top: 1px solid #333;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  .submit-button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+  }
