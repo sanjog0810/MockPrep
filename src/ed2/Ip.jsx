@@ -18,7 +18,9 @@ function App() {
   const [loadingProblem, setLoadingProblem] = useState(true);
   const [isInterviewEnded, setIsInterviewEnded] = useState(false);
   const hasSpokenWelcome = useRef(false); // Track if welcome has been spoken
-  const topic = localStorage.getItem('selectedTopic') || 'graphs';
+  const topicObj = JSON.parse(localStorage.getItem('selectedTopic'));
+  const topic = topicObj?.name || 'graphs';
+
 
   // Function to handle interview end
   const handleInterviewEnd = async () => {
