@@ -13,7 +13,7 @@ function ResultsPage() {
   useEffect(() => {
     const fetchResult = async () => {
       try {
-        const res = await axios.post(`${BASE_URL}/end`, {
+        const res = await axios.post(`${BASE_URL}/review`, {
           questionId,
           username,
           finalCode: localStorage.getItem('finalCode'),
