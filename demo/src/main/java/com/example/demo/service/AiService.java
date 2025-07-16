@@ -131,13 +131,20 @@ public class AiService {
 
         request.setPrompt(prompt);
 
-        AiResponse  response = getReply(request);
+        AiResponse response = getReply(request);
         try {
+            String raw = response.getReply();
+            String clean = raw
+                    .replaceAll("(?s)```(json)?", "")  // Remove ``` or ```json (start)
+                    .replaceAll("```", "")             // Remove ending ```
+                    .trim();
+
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(response.getReply(), Question.class);
+            return mapper.readValue(clean, Question.class);
         } catch (Exception e) {
             throw new RuntimeException("Failed to parse AI response: " + e.getMessage());
         }
+
     }
 
     public String processUserQuery(Long questionId, String query) {
