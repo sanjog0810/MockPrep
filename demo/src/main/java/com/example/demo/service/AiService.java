@@ -20,7 +20,7 @@ public class AiService {
     @Autowired
     private QuestionRepo questionRepo;
 
-    private final String MODEL = "openrouter/cypher-alpha:free";
+    private final String MODEL = "google/gemma-3n-e2b-it:free";
     private final String API_URL = "https://openrouter.ai/api/v1/chat/completions";
     private final String REFERER = "https://your-site-url.com"; // Change to your domain
     private final String TITLE = "MockPrep";
