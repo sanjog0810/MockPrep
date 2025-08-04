@@ -170,7 +170,15 @@ public class AiService {
             AiRequest request1 = new AiRequest();
             request1.setPrompt(prompt);
             AiResponse response = getReply(request1);
-            return response.getReply();
+            String rawReply = response.getReply();
+
+            // ✅ Strip backticks, markdown, and extra whitespace (if any)
+            String cleaned = rawReply
+                    .replaceAll("(?s)```(json)?", "")  // remove ``` or ```json
+                    .replaceAll("```", "")             // remove ending ```
+                    .trim();
+            System.out.println("Cleaned Evaluation JSON: \n" + cleaned);
+            return cleaned;
         } catch (Exception e) {
             e.printStackTrace();
             return "Error evaluating performance.";
