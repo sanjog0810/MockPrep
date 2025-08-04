@@ -23,7 +23,7 @@ public class HomeCtrl {
     }
     @PostMapping("/review")
     public ResponseEntity<String> reviewCode(@RequestBody CodeReviewRequest request) {
-        String code = request.getFinalCode();
+        String code = request.getCode();
         Long questionId = request.getQuestionId();
         String feedback = aiService.getFeedback(code,questionId);
         return ResponseEntity.ok(feedback);
