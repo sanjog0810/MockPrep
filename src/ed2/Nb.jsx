@@ -45,7 +45,7 @@ const Navbar = ({ activeTab, setActiveTab, onTimeExpired, isInterviewEnded }) =>
   const startTimer = () => {
     if (!isInterviewEnded) {
       setIsRunning(true);
-      setTimeLeft(7 * 60); // Reset to 2 minutes for testing (change to 60 * 60 for production)
+      setTimeLeft(1 * 60); // Reset to 2 minutes for testing (change to 60 * 60 for production)
       hasExpired.current = false;
     }
   };
