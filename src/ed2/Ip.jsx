@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Nb';
 import CodeEditor from './Ce';
@@ -20,6 +21,7 @@ function App() {
   const hasSpokenWelcome = useRef(false); // Track if welcome has been spoken
   const topicObj = JSON.parse(localStorage.getItem('selectedTopic'));
   const topic = topicObj?.name || 'graphs';
+  const navigate = useNavigate();
 
 
   // Function to handle interview end
@@ -54,7 +56,8 @@ function App() {
         // You can either use React Router or window.location
         // For React Router: navigate('/results');
         // For direct redirect:
-        window.location.href = '/results';
+        navigate('/results');
+
         
         // Or if you want to redirect to a specific results page with data:
         // window.location.href = `/results?username=${username}&questionId=${questionId}`;
