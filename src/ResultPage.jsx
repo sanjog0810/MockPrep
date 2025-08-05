@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './ResultPage.css'; // Create this file for styling
+
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function ResultsPage() {
@@ -34,43 +34,34 @@ function ResultsPage() {
     fetchResult();
   }, []);
 
-  if (loading) return <div className="loading">Analyzing your interview...</div>;
-
-  if (!result) return <div className="error">Error fetching interview result. Please try again.</div>;
+  if (loading) return <div>Analyzing your interview...</div>;
+  if (!result) return <div>Error fetching interview result. Please try again.</div>;
 
   return (
-    <div className="results-container">
-      <h1 className={result.passed ? 'pass' : 'fail'}>
+    <div>
+      <h1>
         {result.passed ? '🎉 Congratulations! You Passed' : '❌ Interview Not Cleared'}
       </h1>
 
-      <p className="verdict"><strong>Verdict:</strong> {result.verdict}</p>
+      <p><strong>Verdict:</strong> {result.verdict}</p>
 
-      <section>
-        <h2>💪 Strengths</h2>
-        <ul>
-          {result.strengths.map((s, i) => <li key={i}>{s}</li>)}
-        </ul>
-      </section>
+      <h2>💪 Strengths</h2>
+      <ul>
+        {result.strengths.map((s, i) => <li key={i}>{s}</li>)}
+      </ul>
 
-      <section>
-        <h2>📉 Weaknesses</h2>
-        <ul>
-          {result.weaknesses.map((w, i) => <li key={i}>{w}</li>)}
-        </ul>
-      </section>
+      <h2>📉 Weaknesses</h2>
+      <ul>
+        {result.weaknesses.map((w, i) => <li key={i}>{w}</li>)}
+      </ul>
 
-      <section>
-        <h2>🧠 Feedback</h2>
-        <p>{result.feedback}</p>
-      </section>
+      <h2>🧠 Feedback</h2>
+      <p>{result.feedback}</p>
 
-      <section>
-        <h2>📌 Recommendations</h2>
-        <ul>
-          {result.recommendations.map((r, i) => <li key={i}>{r}</li>)}
-        </ul>
-      </section>
+      <h2>📌 Recommendations</h2>
+      <ul>
+        {result.recommendations.map((r, i) => <li key={i}>{r}</li>)}
+      </ul>
     </div>
   );
 }
